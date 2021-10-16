@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
+import { validData } from './validData';
 
 const SignIn = () => {
 
@@ -10,13 +11,20 @@ const SignIn = () => {
         isAccept: false
     })
 
+    const [errors, setErrors] = useState({})
+
+    useEffect(() => {
+        setErrors(validData(data))
+        console.log(errors)
+    },[data])
+
     const changHandler = (event) => {
         if(event.target.name === "isAccept"){
             setData({...data, [event.target.name]: event.target.checked})
         } else{
             setData({...data, [event.target.name]: event.target.value})
         }
-        console.log(data)
+        
     }
 
     return (
