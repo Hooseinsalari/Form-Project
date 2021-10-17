@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -21,7 +22,7 @@ const SignIn = () => {
   const [touched, setTouched] = useState({});
 
   useEffect(() => {
-    setErrors(validData(data));
+    setErrors(validData(data, "signup"));
     console.log(errors);
   }, [data, touched]);
 
@@ -126,7 +127,7 @@ const SignIn = () => {
             </div>
         </div>
         <div className={styles.footer}>
-          <a href="#">Login</a>
+          <Link to="/LogIn">Login</Link>
           <button type="submit">Sign up</button>
         </div>
       </form>
