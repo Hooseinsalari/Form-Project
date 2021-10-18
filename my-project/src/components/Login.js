@@ -20,7 +20,6 @@ const Login = () => {
 
   useEffect(() => {
     setErrors(validData(data, "login"));
-    console.log(errors);
   }, [data, touched]);
 
   const changHandler = (event) => {
@@ -54,7 +53,7 @@ const Login = () => {
         <h2 className={styles.header}>Sign up</h2>
 
         <div className={styles.formField}>
-          <label>Email</label>
+          <label className={styles.label}>Email</label>
           <input
             className={
               errors.email && touched.email
@@ -70,7 +69,7 @@ const Login = () => {
           {errors.email && touched.email && <span>{errors.email}</span>}
         </div>
         <div className={styles.formField}>
-          <label>Password</label>
+          <label className={styles.label} htmlFor="password">Password</label>
           <input
             className={
               errors.password && touched.password

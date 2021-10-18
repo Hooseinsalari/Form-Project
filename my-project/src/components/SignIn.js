@@ -23,7 +23,6 @@ const SignIn = () => {
 
   useEffect(() => {
     setErrors(validData(data, "signup"));
-    console.log(errors);
   }, [data, touched]);
 
   const changHandler = (event) => {
@@ -59,7 +58,7 @@ const SignIn = () => {
       <form onSubmit={submitHandler} className={styles.formContainer}>
         <h2 className={styles.header}>Sign up</h2>
         <div className={styles.formField}>
-          <label>Name</label>
+          <label className={styles.label}>Name</label>
           <input
             className={(errors.name && touched.name)? styles.unComplete : styles.forminput }
             type="text"
@@ -71,7 +70,7 @@ const SignIn = () => {
           {errors.name && touched.name && <span>{errors.name}</span>}
         </div>
         <div className={styles.formField}>
-          <label>Email</label>
+          <label className={styles.label}>Email</label>
           <input
             className={(errors.email && touched.email)?  styles.unComplete : styles.forminput}
             type="text"
@@ -83,7 +82,7 @@ const SignIn = () => {
           {errors.email && touched.email && <span>{errors.email}</span>}
         </div>
         <div className={styles.formField}>
-          <label>Password</label>
+          <label className={styles.label}>Password</label>
           <input
             className={(errors.password && touched.password)? styles.unComplete :styles.forminput }
             type="password"
@@ -97,7 +96,7 @@ const SignIn = () => {
           )}
         </div>
         <div className={styles.formField}>
-          <label>Confirm Password</label>
+          <label className={styles.label}>Confirm Password</label>
           <input
             className={(errors.confirmPassword && touched.confirmPassword)?styles.unComplete  : styles.forminput}
             type="password"
@@ -114,7 +113,7 @@ const SignIn = () => {
             <div className={styles.checkBoxContainer}>
                 <label className={styles.labalCheckBox}>I accept privacy of policy</label>
                 <input
-                    // className={(errors.isAccept && touched.isAccept)?styles.unComplete  : styles.forminput}
+                                        
                     type="checkbox"
                     name="isAccept"
                     value={data.isAccept}
